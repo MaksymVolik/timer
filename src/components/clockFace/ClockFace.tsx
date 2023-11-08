@@ -1,10 +1,9 @@
+import { useContext } from 'react';
 import styles from './clockFace.module.css';
+import { TimerContext } from '../../context';
 
-type Props = {
-    time: number
-};
-
-const ClockFace = (props: Props) => {
+const ClockFace = () => {
+    const { timer } = useContext(TimerContext);
 
     function getTime(t: number) {
         const hours = Math.floor((t / (60 * 60)) % 24);
@@ -20,7 +19,7 @@ const ClockFace = (props: Props) => {
 
     const getZero = (num: number) => num >= 0 && num < 10 ? `0${num}` : num;
 
-    const renderTime = getTime(props.time);
+    const renderTime = getTime(timer);
 
     return (
         <div className={styles.clock}>

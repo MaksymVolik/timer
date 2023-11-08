@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { FC, useContext, useState } from 'react';
+import { TimerContext } from '../../context';
 import ClockFace from '../clockFace/ClockFace';
 import styles from './timer.module.css';
 
-const Timer = () => {
-    const [timer, setTimer] = useState<number>(0);
-    const [timerStarted, setTimerStarted] = useState<boolean>(false);
-    const [intervalID, setIntervalID] = useState<NodeJS.Timer>();
+const Timer: FC = () => {
+    const { timerStarted, setTimer, setTimerStarted } = useContext(TimerContext);
+    const [intervalID, setIntervalID] = useState<NodeJS.Timer | undefined>(undefined);
 
     console.log('render');
 
     const updateTimer = () => {
-        setTimer(oldTimer => oldTimer + 1);
+        setTimer(prevTimer => prevTimer + 1);
     }
 
     const onStart = () => {
@@ -27,15 +27,14 @@ const Timer = () => {
         setTimerStarted(false);
     }
 
-    const message = timerStarted
-        ? <p className={styles.message}>Timer started</p>
-        : null;
+    const title = timerStarted
+        ? "Timer is running"
+        : 'Timer';
 
     return (
         <div className={styles.wrapper}>
-            <h1 className={styles.title}>Timer</h1>
-            <ClockFace time={timer} />
-            {message}
+            <h1 className={styles.title}>{title}</h1>
+            <ClockFace />
             <div className={styles.btns}>
                 <button className={styles.btn} type='button' onClick={onStart}>Start</button>
                 <button className={styles.btn} type='button' onClick={() => onStop()}>Stop</button>
