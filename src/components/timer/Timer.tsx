@@ -37,7 +37,7 @@ const Timer: FC = () => {
             <ClockFace />
             <div className={styles.btns}>
                 <button className={styles.btn} type='button' onClick={onStart}>Start</button>
-                <button className={styles.btn} type='button' onClick={() => onStop()}>Stop</button>
+                <button className={styles.btn} type='button' onClick={onStop}>Stop</button>
             </div>
 
         </div>

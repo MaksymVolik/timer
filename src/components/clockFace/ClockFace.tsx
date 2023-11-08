@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import styles from './clockFace.module.css';
 import { TimerContext } from '../../context';
+import styles from './clockFace.module.css';
 
 const ClockFace = () => {
     const { timer } = useContext(TimerContext);
