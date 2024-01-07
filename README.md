@@ -1,10 +1,9 @@
-Using context write the timer that will have two buttons
-start and stop
+Using context write the timer that will have two buttons start and stop
 Timer should:
 Be stopped by default
 On start, App should display time in format HH:MM:SS
-On start page title should be changed to "Timer is running"
+On start title should be changed to "Timer is running"
 On stop timer should be stopped, the latest value should be present
-Page title should be returned back to normal
+Title should be returned back to normal
 Install MobX
 Implement same functionality with MobX
