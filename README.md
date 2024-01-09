@@ -9,3 +9,8 @@
 - On start title should be changed to "Timer is running"
 - On stop timer should be stopped, the latest value should be present
 - Title should be returned back to normal
+## React:
+- react functional components;
+- hooks (useState, useEffect, useCallback);
+- managing state using Context;
+- TypeScript used;
